@@ -129,7 +129,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func historyButtonDidTouch(_ sender: Any) {
-        print(gameRecords)
+        performSegue(withIdentifier: "HistoySegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HistoySegue" {
+            if let destinationVC = segue.destination as? HistoryTableViewController {
+                destinationVC.gameRecords = gameRecords
+            }
+        }
     }
     
 }

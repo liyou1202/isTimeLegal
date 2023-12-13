@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -86,6 +87,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="History"/>
                                 <connections>
                                     <action selector="historyButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Ym-aZ-pJa"/>
+                                    <segue destination="A3b-SO-eBj" kind="show" identifier="HistoySegue" id="WDa-ju-HZu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -93,12 +95,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ybs-TP-b9P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="H3j-Dx-Aq0"/>
+                            <constraint firstItem="6u2-vJ-Eg9" firstAttribute="top" secondItem="Ybs-TP-b9P" secondAttribute="bottom" constant="31" id="H7Q-zp-HZY"/>
                             <constraint firstItem="Ybs-TP-b9P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IbV-Nt-6AY"/>
                             <constraint firstItem="6u2-vJ-Eg9" firstAttribute="height" secondItem="yQe-aB-Kby" secondAttribute="height" multiplier="1.01942" id="Ojy-cE-b58"/>
                             <constraint firstItem="6u2-vJ-Eg9" firstAttribute="leading" secondItem="Ybs-TP-b9P" secondAttribute="leading" id="PbF-XM-t7D"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yQe-aB-Kby" secondAttribute="trailing" constant="50" id="TOw-QY-sX6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ybs-TP-b9P" secondAttribute="trailing" constant="50" id="mhr-Ej-IaL"/>
-                            <constraint firstItem="6u2-vJ-Eg9" firstAttribute="top" secondItem="Ybs-TP-b9P" secondAttribute="bottom" constant="31" id="rQX-xY-c8M"/>
                             <constraint firstItem="Ybs-TP-b9P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="v9j-Z4-dEp"/>
                             <constraint firstItem="yQe-aB-Kby" firstAttribute="top" secondItem="Ybs-TP-b9P" secondAttribute="bottom" constant="31" id="vog-cg-3r8"/>
                         </constraints>
@@ -113,6 +115,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36.279069767441861" y="-3.218884120171674"/>
+        </scene>
+        <!--History Table View Controller-->
+        <scene sceneID="vP1-NY-d88">
+            <objects>
+                <tableViewController id="A3b-SO-eBj" customClass="HistoryTableViewController" customModule="isTimeLegal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="cD7-mQ-MY5">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="922"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OaM-BY-1Ms" customClass="HistoryTableViewCell" customModule="isTimeLegal" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="430" height="44.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OaM-BY-1Ms" id="7VX-TN-MvK">
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="44.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="A3b-SO-eBj" id="tWE-XK-WLo"/>
+                            <outlet property="delegate" destination="A3b-SO-eBj" id="Xkq-Ux-m3e"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ofp-qx-vil"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5iC-mh-EYs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="811.875" y="-15.845070422535212"/>
         </scene>
     </scenes>
     <resources>
